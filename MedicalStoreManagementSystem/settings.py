@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     # 'MedicalApp',
     'Company',
     'Employee',
-    # 'Customer',
+    'Customer',
     'Medicine',
 ]
 
