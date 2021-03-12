@@ -17,10 +17,16 @@ class CustomerRequest(models.Model):
     status = models.BooleanField(default=False)
     added_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.customer_name
+
 
 class Bill(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     added_on = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        self.customer.customer_name
 
 
 class BillDetails(models.Model):
@@ -28,3 +34,5 @@ class BillDetails(models.Model):
     medical_id = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     qty = models.IntegerField()
     added_on = models.DateTimeField(auto_now_add=True)
+
+

@@ -11,6 +11,9 @@ class Company(models.Model):
     description = models.TextField()
     added_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 
 class CompanyAccount(models.Model):
     choice = (
@@ -23,9 +26,15 @@ class CompanyAccount(models.Model):
     transaction_date = models.DateTimeField(auto_now_add=True)
     payment_model = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.company.name
+
 class CompanyBank(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     bank_account_no = models.CharField(max_length=100)
     ifsc = models.CharField(max_length=100)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     added_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.company.name

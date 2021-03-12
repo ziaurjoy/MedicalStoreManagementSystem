@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="09792ba6-d5f0-486e-95fb-c28ffde49780" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Company/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Customer/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Customer/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Employee/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Employee/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Medicine/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Medicine/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Company/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Company/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Customer/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Employee/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Employee/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedicalStoreManagementSystem/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedicalStoreManagementSystem/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedicalStoreManagementSystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedicalStoreManagementSystem/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Medicine/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Medicine/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requrements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requrements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Setup Script" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -25,7 +29,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1pZL7hy5FNut5hcu8vVZgRXqkMk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

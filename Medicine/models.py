@@ -23,6 +23,8 @@ class Medicine(models.Model):
     qty_in_strip = models.CharField(max_length=100)
     added_on = models.DateTimeField(auto_now_add=True)
     object = models.Manager()
+    def __str__(self):
+        return self.name
 
 
 
@@ -33,3 +35,6 @@ class MedicineDetails(models.Model):
     salt_qty = models.CharField(max_length=100)
     desciption = models.TextField()
     added_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.medicine

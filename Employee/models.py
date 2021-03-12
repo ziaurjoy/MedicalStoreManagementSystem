@@ -10,11 +10,17 @@ class Employee(models.Model):
     address = models.TextField()
     added_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 class EmployeeSalary(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     salary_date = models.DateField()
     salary_amount = models.CharField(max_length=20)
     added_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.employee.name
 
 class EmployeeBank(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
@@ -22,3 +28,6 @@ class EmployeeBank(models.Model):
     ifcs = models.CharField(max_length=100)
     added_on = models.DateTimeField()
     object = models.Manager()
+
+    def __str__(self):
+        return self.employee.name
