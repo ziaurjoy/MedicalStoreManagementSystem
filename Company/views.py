@@ -1,12 +1,10 @@
 
-
-from django.shortcuts import render
-# import Project Module
-from Company.models import Company
+from django.shortcuts import get_object_or_404
+from Company.models import *
 from Company.serializer import CompanySerializer
 
-# import rest_framework Module
-from rest_framework.views import APIView
+# rest framework libraries
+from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
@@ -17,55 +15,53 @@ from rest_framework.permissions import IsAuthenticated
 
 
 
-# Company list API
-class CompanyList(APIView):
-    def get(self, request, format=None):
-        snippets = Company.objects.all()
-        company = CompanySerializer(snippets, many=True)
-        return Response(company.data)
+class CompanyAPIViews(viewsets.ViewSet):
 
-
-# Company Create API
-class CompanyCreate(APIView):
-
-    # Authentication Check API
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
+    def list(self, request):
+        queryset = Company.objects.all()
+        serializer = CompanySerializer(queryset, many=True)
+        return Response(serializer.data)
+
 
     def post(self, request, format=None):
-        persions_serializer = CompanySerializer(data=request.data)
-        if persions_serializer.is_valid():
-            persions_serializer.save()
-            return Response(persions_serializer.data, status=status.HTTP_201_CREATED)
-        return Response(persions_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer = CompanySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# Update Delete API
-class CompanyUpdate(APIView):
 
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    def retrieve(self, request, pk=None):
+        queryset = Company.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = CompanySerializer(user)
+        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
 
-    def get_persion(self, id):
+
+
+    def put(self, request, pk, format=None):
+        queryset = Company.objects.all()
+        company_obj = get_object_or_404(queryset, pk=pk)
+        serializer = CompanySerializer(company_obj, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+    def delete(self, request, pk=None):
         try:
-            return Company.objects.get(id=id)
-        except Company.DoesNotExist:
-            Response(Company.errors, status=status.HTTP_404_NOT_FOUND)
+            queryset = Company.objects.all()
+            company_obj = get_object_or_404(queryset, pk=pk)
+            company_obj.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Exception as error:
+            return Response(error)
 
-    def get(self, request, id, format=None):
-        persion = self.get_persion(id)
-        persion_serializer = CompanySerializer(persion)
-        return Response(persion_serializer.data)
 
-    def put(self, request, id, format=None):
-        persion = self.get_persion(id)
-        persion_serializer = CompanySerializer(persion, data=request.data)
-        if persion_serializer.is_valid():
-            persion_serializer.save()
-            return Response(persion_serializer.data)
-        return Response(persion_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, id, format=None):
-        persion = self.get_persion(id)
-        persion.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+

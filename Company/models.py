@@ -17,8 +17,8 @@ class Company(models.Model):
 
 class CompanyAccount(models.Model):
     choice = (
-        (1, 'Debit'),
-        (2, 'Credit')
+        ("debit", 'Debit'),
+        ('credit', 'Credit')
     )
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     transaction_type = models.CharField(choices=choice, max_length=20)
@@ -28,6 +28,8 @@ class CompanyAccount(models.Model):
 
     def __str__(self):
         return self.company.name
+
+
 
 class CompanyBank(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
