@@ -1,6 +1,10 @@
 from django.db import models
 from Company.models import *
 # Create your models here.
+
+
+
+
 # MEDICINE
 class Medicine(models.Model):
     name = models.CharField(max_length=100)
@@ -19,6 +23,8 @@ class Medicine(models.Model):
     qty_in_strip = models.CharField(max_length=100)
     added_on = models.DateTimeField(auto_now_add=True)
     object = models.Manager()
+
+
 
 
 class MedicineDetails(models.Model):
