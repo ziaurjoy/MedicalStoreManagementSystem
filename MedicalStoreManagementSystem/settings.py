@@ -30,6 +30,10 @@ INSTALLED_APPS = [
 
     # startapp
     # 'MedicalApp',
+    'Company',
+    'Employee',
+    'Customer',
+    'Medicine',
 ]
 
 MIDDLEWARE = [
