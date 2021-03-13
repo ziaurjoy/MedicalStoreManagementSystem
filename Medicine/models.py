@@ -22,9 +22,8 @@ class Medicine(models.Model):
     in_stock_total = models.IntegerField()
     qty_in_strip = models.CharField(max_length=100)
     added_on = models.DateTimeField(auto_now_add=True)
-    object = models.Manager()
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 
 
@@ -37,4 +36,4 @@ class MedicineDetails(models.Model):
     added_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.medicine
+        return str(self.medicine)

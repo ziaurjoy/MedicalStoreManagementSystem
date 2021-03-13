@@ -11,7 +11,7 @@ class Employee(models.Model):
     added_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 class EmployeeSalary(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
@@ -20,14 +20,13 @@ class EmployeeSalary(models.Model):
     added_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.employee.name
+        return str(self.employee.name)
 
 class EmployeeBank(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     bank_account_no = models.CharField(max_length=50)
     ifcs = models.CharField(max_length=100)
     added_on = models.DateTimeField()
-    object = models.Manager()
 
     def __str__(self):
-        return self.employee.name
+        return str(self.employee.name)
