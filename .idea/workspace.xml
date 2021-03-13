@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="09792ba6-d5f0-486e-95fb-c28ffde49780" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Company/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Company/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Company/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Company/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedicalStoreManagementSystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedicalStoreManagementSystem/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medicine/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Medicine/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medicine/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Medicine/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +34,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Medicine" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Medicine" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.models">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
