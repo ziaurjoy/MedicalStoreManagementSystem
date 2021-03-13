@@ -1,8 +1,5 @@
 from django.urls import path, include
-
 from Medicine.views import *
-
-
 
 from rest_framework.routers import DefaultRouter
 
@@ -12,9 +9,6 @@ router.register(r'details', MedicineDetailsAPIViews, basename='medicine-details'
 
 urlpatterns = router.urls
 
-
-
 urlpatterns = [
     path('api/', include(router.urls)),
-    # path('api/companybyname/<str:name>', CompanyNameViewSet.as_view(), name="companybyname"),
 ]

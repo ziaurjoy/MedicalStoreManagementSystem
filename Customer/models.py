@@ -26,13 +26,14 @@ class Bill(models.Model):
     added_on = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        self.customer.customer_name
+        return str(self.customer.name)
 
 
 class BillDetails(models.Model):
     bill = models.ForeignKey(Bill, on_delete=models.CASCADE)
-    medical_id = models.ForeignKey(Medicine, on_delete=models.CASCADE)
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     qty = models.IntegerField()
     added_on = models.DateTimeField(auto_now_add=True)
+
 
 
