@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="09792ba6-d5f0-486e-95fb-c28ffde49780" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Company/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Company/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Company/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Company/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MedicalStoreManagementSystem/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedicalStoreManagementSystem/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MedicalStoreManagementSystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedicalStoreManagementSystem/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

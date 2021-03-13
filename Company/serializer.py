@@ -10,9 +10,25 @@ class CompanySerializer(serializers.ModelSerializer):
 
 
 
+
 class CompanyAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompanyAccount
+        fields = '__all__'
+
+    # ForeignKey For Company Class
+    def to_representation(self, instance):
+        response = super().to_representation(instance)
+        response['company'] = CompanySerializer(instance.company).data
+        return response
+
+
+
+
+
+class CompanyBankSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompanyBank
         fields = '__all__'
 
     # ForeignKey For Company Class
