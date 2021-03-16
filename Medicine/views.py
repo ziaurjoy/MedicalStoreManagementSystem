@@ -27,6 +27,14 @@ class MedicinneAPIViews(viewsets.ViewSet):
     def list(self, request):
         queryset = Medicine.objects.all()
         serializer = MedicineSerializer(queryset, many=True)
+        medicine_data = serializer.data
+        new_medicine_list = []
+        for medicine in medicine_data:
+            medicine_details = MedicineDetails.objects.filter(medicine_id=medicine['id'])
+            medicine_details_serializer = MedicineDetailsSerializer(medicine_details, many=True)
+            medicine['medicine_data'] = medicine_details_serializer.data
+            new_medicine_list.append(medicine)
+        print(new_medicine_list)
         return Response(serializer.data)
 
 
@@ -34,6 +42,14 @@ class MedicinneAPIViews(viewsets.ViewSet):
         serializer = MedicineSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            medicine_id = serializer.data['id']
+            medicine_details_list = []
+            for medicine_details in request.data['medicine_details']:
+                medicine_details['medicine_id'] = medicine_id
+                medicine_details_list.append(medicine_details)
+            serializer_medicine_details = MedicineDetailsSerializer(data=medicine_details_list, many=True)
+            serializer_medicine_details.is_valid()
+            serializer_medicine_details.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -42,7 +58,13 @@ class MedicinneAPIViews(viewsets.ViewSet):
         queryset = Medicine.objects.all()
         medicine_obj = get_object_or_404(queryset, pk=pk)
         serializer = MedicineSerializer(medicine_obj)
-        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+
+        serializer_data = serializer.data
+        # Accessing All the Medicine Details of Current Medicine ID
+        medicine_details = MedicineDetails.objects.filter(medicine_id=serializer_data["id"])
+        medicine_details_serializers = MedicineDetailsSerializer(medicine_details, many=True)
+        serializer_data["medicine_details"] = medicine_details_serializers.data
+        return Response(serializer_data, status=status.HTTP_204_NO_CONTENT)
 
 
     def put(self, request, pk=None):
@@ -84,6 +106,7 @@ class MedicineDetailsAPIViews(viewsets.ViewSet):
         serializer = MedicineDetailsSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
